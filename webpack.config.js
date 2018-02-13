@@ -10,7 +10,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
@@ -21,6 +21,12 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin()
+    new HtmlWebpackPlugin({
+      template: './index.ejs',
+      title: 'McMakler GmbH - Frontend Code Challenge'
+    })
   ],
+  resolve: {
+    extensions: ['.js', '.jsx']
+  }
 };
