@@ -1,3 +1,64 @@
 html, body {
   font-family: Roboto, sans-serif;
+  line-height: 20px;
+}
+
+.card-stick {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 2px 8px;
+  font-size: 12px;
+  border-radius: 2px;
+  max-width: calc(100% - 50px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.card-title {
+  text-align: left;
+  padding: 30px 30px 0px 30px !important;
+  color: #131313 !important;
+  span {
+    font-size: 14px !important;
+    line-height: 20px !important;
+    &+ span {
+      margin-top: 10px;
+      font-size: 12px !important;
+    }
+  }
+}
+
+.card-text {
+  padding: 30px !important;
+  text-align: left;
+  font-size: 14px !important;
+}
+
+.card-text_price {
+  font-weight: 500;
+  color: #131313 !important;
+}
+
+.card-text_size {
+  text-align: right;
+  color: #b5b5b5;
+  @media (min-width: 576px) {
+    text-align: left;
+  }
+  @media (min-width: 992px) {
+    text-align: right;
+  }
+  display: inline-block;
+  span {
+    &:first-child {
+      padding-right: 10px;
+      border-right: 1px solid #e3e3e3;
+    }
+    &:last-child {
+      padding-left: 10px;
+    }
+  }
 }
