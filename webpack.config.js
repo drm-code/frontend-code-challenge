@@ -15,10 +15,20 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
-        test: /\.(scss|css)$/,
+        test: /\.css$/,
         loader: 'style-loader!css-loader',
         include: /flexboxgrid/
       },
+      {
+        test: /\.scss$/,
+        use: [{
+          loader: 'style-loader'
+        }, {
+          loader: 'css-loader'
+        }, {
+          loader: 'sass-loader'
+        }]
+      }
     ],
   },
   plugins: [
