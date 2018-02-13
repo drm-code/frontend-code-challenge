@@ -15,6 +15,7 @@
     "babel-preset-env": "^1.5.2",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.9",
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.7.0",
@@ -26,7 +27,10 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
+    "flexboxgrid": "^6.3.1",
+    "material-ui": "^0.20.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-flexbox-grid": "^2.0.0"
   }
 }

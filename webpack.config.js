@@ -15,8 +15,9 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
-        test: /\.css$/,
-        use: ['style-loader'],
+        test: /\.(scss|css)$/,
+        loader: 'style-loader!css-loader',
+        include: /flexboxgrid/
       },
     ],
   },
