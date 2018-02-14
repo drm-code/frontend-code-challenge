@@ -1,49 +1,24 @@
 # Front-End Interview Test
+### Candidate: Yonathan Pineda
 
-This is a simple front-end code challenge created to serve two purposes:
+Follow these steps to run the app
 
-1. Show off your skills,
-1. Give us a better understanding of your skills.
+```sh
+$ git clone https://github.com/mcmakler/frontend-code-challenge.git
+$ cd frontend-code-challenge
+$ yarn / npm install
+$ yarn serve / npm run serve
+```
 
-## The Task
+Once all dependencies are installed a browser will automatically open with the application running.
 
-The programming challenge exists in 2 parts:
-* Part A: HTML + CSS
-* Part B: Javascript
+## IMPORTANT NOTE
+As the provided API has no CORS enabled for javascript, it gave me the tipical Access-Control-Allow-Origin error
 
-### PART A: HTML + CSS
+[![N|Solid](https://i.imgur.com/UeM9mOQ.png)](https://i.imgur.com/UeM9mOQ.png)
 
-![Screen](https://raw.githubusercontent.com/mcmakler/frontend-code-challenge/master/assets/fe_test_example_screen.png)
+So I had to install an extension to my browser, you can find it  [here](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=es), once you have the extension installed, you have to enable it, look for this icon [![N|Solid](https://i.imgur.com/4sjffsn.png)](https://i.imgur.com/4sjffsn.png) in your toolbar, enable the `Cross-Origin resource sharing` option
 
-* Create a layout based on the given screen (fe_test_example_screen.png).
-* Style the layout consistently and beautifully, adhering as closely to the design as possible.
-* **NOTE:** You are free to use any preprocessor you wish, or write raw CSS. *Bonus points for an explanation of your choice.*
+[![N|Solid](https://i.imgur.com/JWZOWLv.png)](https://i.imgur.com/JWZOWLv.png)
 
-### PART B: Javascript
-
-* Consume our public API @ https://api.mcmakler.de/v1/advertisements to retrieve a list of advertisements of vacant apartments.
-* Display the first 10 advertisements in the HTML + CSS layout created in step A, sticking to the layout, placing data where it fits.
-* **NOTE:** You are free to use any framework you wish, or do it VanillaJS style. *Brief explanation of your choice.*
-
-## Additional Instructions
-
-* Fork this repository
-* After you're done, provide us the link to your repository.
-* Leave comments where you were not sure how to properly proceed.
-* Implementations without a README will be automatically rejected.
-* No pull requests
-* ES6 and above
-
-## Bonus Points
-
-* Tests
-* Clean code!
-* Knowledge of application flow.
-* Knowledge of modern best practices/coding patterns.
-* Demonstration of good state management.
-* Usage of frameworks/supersets.
-* Pixel perfection.
-* Componential thinking.
-* Usage of linters.
-* Git hooks.
-* Usage of Material Design concepts
+Now the requests sent to the API endpoint will not return error with the CORS
