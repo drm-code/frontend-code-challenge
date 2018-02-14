@@ -1,0 +1,4 @@
+export const GET_VACANT_LIST = 'GET_VACANT_LIST'
+export const SET_VACANT_LIST = 'SET_VACANT_LIST'
+export const SHOW_LOADING = 'SHOW_LOADING'
+export const HIDE_LOADING = 'HIDE_LOADING'

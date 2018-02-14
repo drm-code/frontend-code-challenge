@@ -1,31 +1,19 @@
 import React from 'react'
 import { Col, Row } from 'react-flexbox-grid'
+import PropTypes from 'prop-types'
 import { Card, CardMedia, CardText, CardTitle } from 'material-ui/Card'
 import Equalizer from 'react-equalizer'
+import { connect } from 'react-redux'
 
 import CardStick from './CardStick'
-import { getVacantList } from '../rest/client'
+import { getVacantList } from '../redux/actions/vacant'
+import { hideLoading } from '../redux/actions/loading'
 
 class VacantList extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      list: []
-    }
-  }
-
   componentWillMount() {
-    getVacantList().then((response) => {
-      const vacantList = response.data.data.slice(0, 10)
-      this.setState({
-        list: vacantList
-      })
-      console.log(vacantList)
+    this.props.getVacantList().then(() => {
+      this.props.hideLoading()
     })
-  }
-
-  getAddress(vacant) {
-    return `${vacant.realestateSummary.address.postalCode} Sinn / ${vacant.realestateSummary.address.city}`
   }
 
   render() {
@@ -34,25 +22,25 @@ class VacantList extends React.Component {
         className="row"
         byRow={false}
       >
-        {this.state.list && this.state.list.map(vacant => (
+        {this.props.vacants && this.props.vacants.map(vacant => (
           <Col
-            key={vacant._id.$id}
+            key={vacant.id}
             sm={6}
             md={4}
             style={{ textAlign: 'center', marginBottom: 20 }}
           >
             <Card style={{ margin: '0px 10px', height: 'inherit' }}>
               <CardMedia>
-                <img src="https://d3e02gns9oqhhr.cloudfront.net/assets/expose_v2/573c7c608ffd7c0b2a8b45b6_variant_asset57ffa0ced86b1_inventoryM.jpg" alt="Vacant" />
+                <img src={vacant.image} alt="Vacant" />
                 <CardStick
-                  text={(vacant.advertisementPrice.sellPrice && 'Kaufen') || 'Mieten'}
+                  text={(vacant.sellPrice && 'Kaufen') || 'Mieten'}
                   textColor="#aaaaaa"
                 />
               </CardMedia>
               <CardTitle
                 className="card-title"
                 title={vacant.title}
-                subtitle={this.getAddress(vacant)}
+                subtitle={`${vacant.postalCode} Sinn / ${vacant.city}`}
               />
               <CardText className="card-text">
                 <Row>
@@ -62,7 +50,7 @@ class VacantList extends React.Component {
                     lg={4}
                     className="card-text_price"
                   >
-                    <span>{vacant.advertisementPrice.sellPrice || vacant.advertisementPrice.baseRent} €</span>
+                    <span>{vacant.sellPrice || vacant.baseRent} €</span>
                   </Col>
                   <Col
                     xs={7}
@@ -70,7 +58,7 @@ class VacantList extends React.Component {
                     lg={8}
                     className="card-text_size"
                   >
-                    <span>{vacant.realestateSummary.numberOfRooms} Zimmer</span>
+                    <span>{vacant.rooms} Zimmer</span>
                     <span>ab 35m2</span>
                   </Col>
                 </Row>
@@ -83,4 +71,19 @@ class VacantList extends React.Component {
   }
 }
 
-export default VacantList
+VacantList.propTypes = {
+  getVacantList: PropTypes.func,
+  hideLoading: PropTypes.func,
+  vacants: PropTypes.array,
+}
+
+const mapStateToProps = ({ vacant }) => ({
+  vacants: vacant.vacantList
+})
+
+const mapDispatchToProps = dispatch => ({
+  getVacantList: () => dispatch(getVacantList()),
+  hideLoading: () => dispatch(hideLoading())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(VacantList)

@@ -2,19 +2,27 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { Grid } from 'react-flexbox-grid'
+import { connect } from 'react-redux'
+
+import Loading from '../components/Loading'
 
 import '../styles/global.scss'
 
-export default function Main(props) {
+function Main(props) {
   return (
     <MuiThemeProvider>
-      <Grid>
-        {props.children}
-      </Grid>
+      <div>
+        <Loading />
+        <Grid>
+          {props.children}
+        </Grid>
+      </div>
     </MuiThemeProvider>
   )
 }
 
 Main.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 }
+
+export default connect(null)(Main)

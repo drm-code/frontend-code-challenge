@@ -12,6 +12,7 @@
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.0.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.5.2",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
@@ -30,6 +31,8 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "emotion": "^9.0.1",
     "flexboxgrid": "^6.3.1",
     "material-ui": "^0.20.0",
     "prop-types": "^15.6.0",
@@ -37,6 +40,10 @@
     "react-dom": "^16.2.0",
     "react-equalizer": "^1.3.0",
     "react-flexbox-grid": "^2.0.0",
+    "react-redux": "^5.0.6",
+    "react-spinners": "^0.2.6",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
     "tunnel": "^0.0.5"
   }
 }
