@@ -1,24 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import { Grid, Row } from 'react-flexbox-grid'
+import { Grid } from 'react-flexbox-grid'
 
 import '../styles/global.scss'
 
-class Main extends React.Component {
-  render() {
-    return (
-      <MuiThemeProvider>
-        <Grid>
-          {this.props.children}
-        </Grid>
-      </MuiThemeProvider>
-    )
-  }
+export default function Main(props) {
+  return (
+    <MuiThemeProvider>
+      <Grid>
+        {props.children}
+      </Grid>
+    </MuiThemeProvider>
+  )
 }
 
 Main.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node.isRequired
 }
-
-export default Main

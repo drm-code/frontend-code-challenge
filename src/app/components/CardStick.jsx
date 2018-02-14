@@ -1,7 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Col } from 'react-flexbox-grid'
 
-export default function CardStick (props) {
+export default function CardStick(props) {
   const textStyle = {
     color: props.textColor,
     fontWeight: 500
@@ -22,7 +23,14 @@ export default function CardStick (props) {
   )
 }
 
+CardStick.propTypes = {
+  bgColor: PropTypes.string,
+  textColor: PropTypes.string,
+  text: PropTypes.string
+}
+
 CardStick.defaultProps = {
   bgColor: '#fff',
   textColor: '#000',
+  text: ''
 }
